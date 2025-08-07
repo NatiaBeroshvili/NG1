@@ -1,0 +1,28 @@
+<header>
+<nav>
+    <ul *ngIf="!showBurger">
+        <li><a routerLink="home">Home</a></li>
+        <li><a routerLink="hotels">Hotels</a></li>
+        <li><a routerLink="rooms">Rooms</a></li>
+        <li><a routerLink="bookedrooms">Booked Rooms</a></li>
+    </ul>
+    
+</nav>
+
+<div class="burger" (click)="showHide()">
+       <div class="line"></div>
+       <div class="line"></div>  
+       <div class="line"></div>
+</div>
+
+</header>
+
+<div class="burgerMenu" *ngIf="showBurger">
+    <ul>
+        <li><a routerLink="home">Home</a></li>
+        <li><a routerLink="hotels">Hotels</a></li>
+        <li><a routerLink="rooms">Rooms</a></li>
+        <li><a routerLink="bookedrooms">Booked Rooms</a></li>
+    </ul>
+
+</div>

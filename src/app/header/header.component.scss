@@ -1,0 +1,88 @@
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    background-image: url(../../../public/images/Capture\ d’écran_5-8-2025_12438_depositphotos.com.jpeg);
+    background-repeat: no-repeat;
+    background-size: 130px;
+    // margin-left: 80px;
+
+nav {
+   
+    ul{
+        list-style: none;
+        display: flex;
+        gap: 50px;
+
+        li {
+            a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+                font-size: larger;
+
+                &:hover {
+                    color: #007bff;
+                }
+            }
+        }
+    }
+}
+}
+
+.burger {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+
+    .line {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        border-radius: 5px;
+    
+    }
+}
+
+.burgerMenu{
+    width: 100%;
+    height: 90vh;
+    background-color: #40434526;
+    ul{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        list-style: none;
+        li {
+            a {
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                font-size: larger;
+
+                &:hover {
+                    color: #007bff;
+                }
+            }
+        }
+    }
+}
