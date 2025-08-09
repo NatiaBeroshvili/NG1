@@ -4,10 +4,11 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { BookedroomsComponent } from './bookedrooms/bookedrooms.component';
 import { ErrorComponent } from './error/error.component';
 
+
 export const routes: Routes = [
      {
-    path:'',
-    redirectTo: 'home',
+    path:"",
+    redirectTo: "home",
     pathMatch: 'full'
     },
 
@@ -22,8 +23,7 @@ export const routes: Routes = [
     component:BookedroomsComponent},
     
     
-    {
-        path: '**',
+    {path: '**',
         component: ErrorComponent}
     
 ];

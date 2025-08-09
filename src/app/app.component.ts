@@ -8,6 +8,7 @@ import { BookedroomsComponent } from './bookedrooms/bookedrooms.component';
 
 
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, HeaderComponent,HomeComponent,HotelsComponent,RoomsComponent,BookedroomsComponent],

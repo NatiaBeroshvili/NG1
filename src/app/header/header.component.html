@@ -1,10 +1,10 @@
 <header>
 <nav>
     <ul *ngIf="!showBurger">
-        <li><a routerLink="home">Home</a></li>
-        <li><a routerLink="hotels">Hotels</a></li>
-        <li><a routerLink="rooms">Rooms</a></li>
-        <li><a routerLink="bookedrooms">Booked Rooms</a></li>
+        <li><a routerLink="home" [routerLinkActive]="active" >Home</a></li>
+        <li><a routerLink="hotels"  [routerLinkActive]="active">Hotels</a></li>
+        <li><a routerLink="rooms"  [routerLinkActive]="active">Rooms</a></li>
+        <li><a routerLink="bookedrooms" [routerLinkActive]="active">Booked Rooms</a></li>
     </ul>
     
 </nav>
