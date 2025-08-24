@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.hotel-list {
+    margin-top: 150px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+
+.hotel-card{
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+
+ 
+.card{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+    img{
+        width: 300px;
+    }
+    
+    .btn{
+        padding: 20px 100px;
+        background-color: #75c5cf;
+        color: white;
+        border-radius: 5px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: larger;
+        border: none;
+        cursor: pointer;
+    }
+
+}

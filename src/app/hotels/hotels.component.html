@@ -1,1 +1,12 @@
-<p>hotels works!</p>
+<div class="hotel-list">
+  <div *ngFor="let hotel of hotelsArr" class="hotel-card"> 
+    <div class="card">
+      <img [src]="hotel.featuredImage" alt="" />
+      <p>{{ hotel.city }}</p>
+      <h2>{{ hotel.name }}</h2>
+      <h3>{{ hotel.address }}</h3>
+      <button class="btn">VIEW ROOMS</button>
+    </div>
+  </div>
+</div>
+

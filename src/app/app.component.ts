@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { HomeComponent } from './home/home.component';
@@ -18,3 +18,4 @@ import { BookedroomsComponent } from './bookedrooms/bookedrooms.component';
 export class AppComponent {
   title = 'NG1';
 }
+
