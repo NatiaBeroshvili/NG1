@@ -26,7 +26,7 @@
 
        <p>And We Like To Keep It That Way</p>
 
-    <a routerLink="hotels">See Hotels</a>
+    <a routerLink="/hotels">See Hotels</a>
 
  
 </div>
@@ -38,6 +38,22 @@
   <hr />
   <span class="separator-text">Guests Favorite Rooms</span>
   <hr />
+</div>
+
+<div class="rooms-container">
+  <div class="room-card" *ngFor="let room of roomsArr">
+     <img [src]="room.images[0].source" alt="" />
+     <button class="reserve-btn">Book Now</button>
+     <h2>{{ room.name }}</h2>
+    <!-- <p><i class="fas fa-hotel"></i> Hôtel ID : {{ room.hotelId }}</p> -->
+    <p><i class="fas fa-euro-sign"></i> Night : {{ room.pricePerNight }} €</p>
+   
+    <!-- <p>
+      <i class="fas" [ngClass]="room.available ? 'fa-check-circle available' : 'fa-times-circle unavailable'"></i>
+      {{ room.available ? 'Disponible' : 'Indisponible' }}
+    </p> -->
+    
+  </div>
 </div>
 
 
@@ -54,7 +70,7 @@
 
 <div class="circle-container">
   <div class="circle">
-    <img src="https://cdn-icons-png.flaticon.com/512/96/96172.png" alt="Verre à pied" class="glass" />
+    <img  src="https://cdn-icons-png.flaticon.com/512/96/96172.png" alt="Verre à pied" class="glass" />
   </div>
   <p class="circle-text">Beverages included</p>
   <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, iste.</span>

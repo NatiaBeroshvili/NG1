@@ -16,6 +16,16 @@ export class ApiService {
 
   }
 
+
+
+  getAllRooms(url : string){
+    return this.http.get(url).pipe(
+      catchError(this.errorHandling)
+    )
+  }
+
+
+  
   private errorHandling(err : HttpErrorResponse){
     return throwError(()=> ("something went wrong,try later"))
   }

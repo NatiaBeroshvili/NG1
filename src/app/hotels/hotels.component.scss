@@ -6,7 +6,7 @@
 
 
 .hotel-list {
-    margin-top: 150px;
+  margin-top: 150px;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -16,10 +16,16 @@
 
 
 .hotel-card{
-    width: 50%;
-    height: 50vh;
+    background-color: #F8F9FA;
+    width: 60%;
+    height: 60vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+
 
  
 .card{
@@ -37,7 +43,7 @@
     
     .btn{
         padding: 20px 100px;
-        background-color: #75c5cf;
+        background-color:#379ADC;
         color: white;
         border-radius: 5px;
         font-family: 'Times New Roman', Times, serif;

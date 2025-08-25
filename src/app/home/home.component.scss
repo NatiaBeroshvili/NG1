@@ -63,7 +63,7 @@ h1{ color: white;
 }
 a{
   padding: 20px 40px;
-  background-color: grey;
+  background-color: #379ADC;
   border-radius: 5px;
   text-decoration: none;
   color: white;
@@ -92,7 +92,6 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-  // text-align: center;
   margin: 40px 0;
 }
 
@@ -133,12 +132,12 @@ a{
 }
 
 .circle:hover {
-  background-color:#75C5CF; /* couleur dorée au hover */
+  background-color:#75C5CF; 
   transform: rotate(-5deg); /* bascule à gauche */
   animation: swing 0.6s ease-in-out;
 }
 
-img{
+.glass{
   width: 30px;
   height: auto;
 }
@@ -191,5 +190,82 @@ p{
 }
 
 
+.rooms-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+.room-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 350px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
 
+  &:hover {
+    transform: translateY(-5px);
+
+   img {
+     width: 350px;
+     transition: transform 0.3s ease;
+     transform: translateY(-100px);
+
+    }
+
+    .reserve-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// .room-card:hover {
+//   transform: translateY(-5px);
+// }
+
+.room-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #2c3e50;
+}
+
+.room-card p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #34495e;
+}
+
+.available {
+  color: #27ae60;
+}
+
+.unavailable {
+  color: #c0392b;
+}
+
+
+.reserve-btn{
+  opacity: 0;
+  position: absolute;
+  top: 180px;
+  right: 12%;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  background-color: #3498db;
+  color: white;
+  font-size:larger;
+  font-family: 'Times New Roman', Times, serif;
+  border: none;
+  padding: 15px 100px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
