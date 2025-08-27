@@ -1,12 +1,15 @@
 import { Component} from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { CommonModule } from '@angular/common';
+import { Hotels } from '../models/hotels';
+import { RouterLink, RouterModule } from '@angular/router';
+
 
 
 
 @Component({
   selector: 'app-hotels',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink,RouterModule],
   templateUrl: './hotels.component.html',
   styleUrl: './hotels.component.scss'
 })
@@ -31,13 +34,10 @@ this.http.getData("https://hotelbooking.stepprojects.ge/api/Hotels/GetAll")
 )
 }
 
-hotelsArr: 
-{ 
-  id:number;
-  name:string
-  address: string; 
-  city: string;
-  featuredImage: string }[] = [];
+
+
+hotelsArr: Hotels[] = [];
+
 
 }
 

@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import AOS from 'aos';
 import { ApiService } from '../services/api.service';
 import { CommonModule } from '@angular/common';
+import { Rooms } from '../models/rooms';
 
 
 
@@ -35,22 +36,13 @@ ngOnInit(): void{
    
     }
 
-roomsArr: {
-  id: number;
-  name: string;
-  hotelId: number;
-  pricePerNight: number;
-  available: boolean;
-  images :[
-    {source : string}
-  ]
-}[] = [];
+roomsArr: Rooms [] = [];
 
 AllRooms() {
   this.http.getData("https://hotelbooking.stepprojects.ge/api/Rooms/GetAll")
 .subscribe((resp:any) => {
 
-  this.roomsArr = resp
+  this.roomsArr = resp.slice(0,6)
   console.log(this.roomsArr)
 }
 
@@ -58,5 +50,3 @@ AllRooms() {
 
 }
 
-
-// {id: 1, name: 'Premium Room', hotelId: 1, pricePerNight: 199, available: true, …

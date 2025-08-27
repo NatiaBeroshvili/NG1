@@ -2,7 +2,7 @@
 
 <div class="image-container" data-aos="zoom-in-up">
     
-    <img src="https://hotelbooking.stepprojects.ge/images/slides/slide-bg.jpg"  class="fade-image">
+    <img src="images/slide-bg.jpg"  class="fade-image">
 </div>
 
 
@@ -43,7 +43,7 @@
 <div class="rooms-container">
   <div class="room-card" *ngFor="let room of roomsArr">
      <img [src]="room.images[0].source" alt="" />
-     <button class="reserve-btn">Book Now</button>
+     <button routerLink="/rooms/{{room.id}}"   class="reserve-btn">Book Now</button>
      <h2>{{ room.name }}</h2>
     <!-- <p><i class="fas fa-hotel"></i> Hôtel ID : {{ room.hotelId }}</p> -->
     <p><i class="fas fa-euro-sign"></i> Night : {{ room.pricePerNight }} €</p>
