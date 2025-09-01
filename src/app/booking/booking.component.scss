@@ -1,0 +1,61 @@
+.carcont {
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  // flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+
+  .carousel {
+    width: 50%;
+  }
+
+  .reservation-form {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  label{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+  }
+  h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+
+  }
+
+  p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .submit {
+    background-color: #3498db;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    font-family: "Times New Roman", Times, serif;
+    padding: 10px 105px;
+  }
+
+  input {
+    width: 300px;
+    padding: 5px 40px;
+    border-radius: 5px;
+    border-color: #E1E1E1;
+  }
+}

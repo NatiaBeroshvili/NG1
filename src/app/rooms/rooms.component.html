@@ -1,18 +1,14 @@
+<app-roomstype (typeId)="roomTypeFromChild($event)"></app-roomstype>
 
-
-<app-roomstype></app-roomstype>
-
-
-<div class="room-card" *ngIf="room">
-  <h2>{{room.name }}</h2>
-  <p>ფასი: {{ room.pricePerNight }}</p>
-  <p>მაქსიმუმ სტუმარი: {{ room.maximumGuests }}</p>
-
-  <div *ngIf="room.images?.length">
-    <img [src]="room.images[0].imageUrl" alt="Room Image" />
+<div class="cont">
+  <div class="room-card" *ngFor="let room of roomsArr">
+    <div *ngIf="room.images?.length">
+      <img [src]="room.images[0].source" alt="Room Image" />
+      <h2>{{ room.name }}</h2>
+      <p>Night price: {{ room.pricePerNight }} €</p>
+    
+       <button routerLink="/booking/{{room.id}}"   class="bkn">Book Now</button>
+       <!-- <p>Maximum Guests: {{ room.maximumGuests }}</p> -->
+    </div>
   </div>
 </div>
-
-
-
-

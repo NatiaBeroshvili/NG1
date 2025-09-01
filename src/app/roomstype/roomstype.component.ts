@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { RoomTypes } from '../models/GetroomTypes';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-roomstype',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './roomstype.component.html',
-  styleUrl: './roomstype.component.scss'
+  styleUrl: './roomstype.component.scss',
+  standalone : true
 })
 export class RoomstypeComponent implements OnInit{
 
-  
+  @Output() typeId: EventEmitter<number> = new EventEmitter<number>();
+
   constructor(private api : ApiService) {
 
   }
@@ -25,5 +28,8 @@ export class RoomstypeComponent implements OnInit{
   }
 
   roomsTypeArr: RoomTypes[] = [];
+  searchByType(typeId : number){
+    this.typeId.emit(typeId)
+  }
 }
 

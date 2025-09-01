@@ -36,6 +36,12 @@ getroomTypes(url:string){
   )
 }
 
+ filterRoom(url: string, obj : any){
+     return this.http.post(url, obj).pipe(
+    catchError(this.errorHandling)
+  )
+ }
+
 
 
 

@@ -1,0 +1,63 @@
+
+
+<div class="carcont">
+
+<div id="carouselExample" class="carousel slide" *ngIf="room" >
+  <div class="carousel-inner" >
+    <div class="carousel-item active">
+      <img [src]="room!.images[0].source" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img [src]="room!.images[1].source" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img [src]="room!.images[2].source" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img [src]="room!.images[3].source" class="d-block w-100" alt="...">
+    </div>
+    
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- <h2>Price per Night {{room?.pricePerNight}}</h2> -->
+
+
+
+
+
+<div class="reservation-form">
+    <h3>Booking</h3>
+    <p>{{ room?.name }} <strong>€ {{ room?.pricePerNight }}</strong> a night</p>
+
+    <form (ngSubmit)="bookNow()">
+      <label>Check-in <i class="fas fa-calendar-alt"></i></label>
+      
+      <input type="date" [(ngModel)]="booking.checkIn" name="checkIn" required />
+
+      <label>Check-out <i class="fas fa-calendar-alt"></i></label>
+      <input type="date" [(ngModel)]="booking.checkOut" name="checkOut" required />
+
+      <label>Customer Name</label>
+      <input type="text" [(ngModel)]="booking.name" name="name" required placeholder="Please enter your name" />
+
+      <label>Customer Phone  N°</label>
+
+<input type="tel" [(ngModel)]="booking.phone" name="phone" required placeholder="Please enter your phone N°" />
+
+      <button type="submit" class="submit">BOOK NOW</button>
+    </form>
+  </div> 
+
+
+
+</div>

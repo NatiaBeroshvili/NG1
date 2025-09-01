@@ -43,10 +43,10 @@
 <div class="rooms-container">
   <div class="room-card" *ngFor="let room of roomsArr">
      <img [src]="room.images[0].source" alt="" />
-     <button routerLink="/rooms/{{room.id}}"   class="reserve-btn">Book Now</button>
+     <button routerLink="/booking/{{room.id}}"   class="reserve-btn">Book Now</button>
      <h2>{{ room.name }}</h2>
     <!-- <p><i class="fas fa-hotel"></i> Hôtel ID : {{ room.hotelId }}</p> -->
-    <p><i class="fas fa-euro-sign"></i> Night : {{ room.pricePerNight }} €</p>
+    <p>A Night : {{ room.pricePerNight }} €</p>
    
     <!-- <p>
       <i class="fas" [ngClass]="room.available ? 'fa-check-circle available' : 'fa-times-circle unavailable'"></i>

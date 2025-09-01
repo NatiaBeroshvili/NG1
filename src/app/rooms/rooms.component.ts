@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { RoomById } from '../models/roomById';
 import { RoomstypeComponent } from "../roomstype/roomstype.component";
@@ -10,9 +10,10 @@ import { Rooms } from '../models/rooms';
 
 @Component({
   selector: 'app-rooms',
-  imports: [CommonModule, FormsModule, RoomstypeComponent],
+  imports: [CommonModule, FormsModule, RoomstypeComponent,RouterModule],
   templateUrl: './rooms.component.html',
-  styleUrl: './rooms.component.scss'
+  styleUrl: './rooms.component.scss',
+    standalone : true
 })
 
 export class RoomsComponent implements OnInit{
@@ -46,6 +47,27 @@ ngOnInit() {
 
 
 roomsArr: Rooms [] = [];
+
+roomTypeFromChild(id : number){
+  console.log("from child " + id)
+
+  if(id === -1){
+    this.api.getData("https://hotelbooking.stepprojects.ge/api/Rooms/GetAll")
+      .subscribe((resp: any) => {
+        this.roomsArr = resp;
+        console.log(this.roomsArr);
+      });
+  }
+  else {
+      this.api.filterRoom("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered", {
+    "roomTypeId": id
+  }).subscribe((resp:any) =>{
+    this.roomsArr = resp
+    console.log(this.roomsArr)
+  });
+  }
+
+}
 
 
 }

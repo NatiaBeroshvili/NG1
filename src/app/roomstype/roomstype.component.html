@@ -1,6 +1,8 @@
 
-<p>roomstype works!</p>
 
-<h2></h2>
-<h2></h2>
-<h2></h2>
+
+
+<div class="typesbtn">
+   <button (click)="searchByType(-1)">All</button>
+   <button *ngFor="let el of roomsTypeArr" (click)="searchByType(el.id)">{{el.name}}</button>
+</div>

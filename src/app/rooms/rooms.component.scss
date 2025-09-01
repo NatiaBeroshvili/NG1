@@ -1,11 +1,82 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.room-card{
-    margin-top: 200px;
-    width: 100%;
-    background-color: yellow;
+.cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.room-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 350px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  border-radius: 8px;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-5px);
+
+    .room-card img {
+      transition: transform 0.3s ease;
+      transform: translateY(-100px);
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    .bkn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h2 {
+    color: #2c3e50;
+    font-size: larger;
+    font-weight: bolder;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  p {
+    color: #2c3e50;
+    font-size: medium;
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
+.bkn {
+  opacity: 0;
+  position: absolute;
+  top: 180px;
+  right: 10%;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  background-color: #3498db;
+  color: white;
+  font-size: larger;
+  font-family: "Times New Roman", Times, serif;
+  border: none;
+  padding: 15px 100px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.room-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
 }

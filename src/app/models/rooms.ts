@@ -4,7 +4,7 @@
   hotelId!: number;
   pricePerNight!: number;
   available!: boolean;
-  images !:[
-    {source : string}
-  ]
- }
+  maximumGuests!: number;
+  roomTypeId! : number;
+  images!: Array<{ source: string }>;
+}
