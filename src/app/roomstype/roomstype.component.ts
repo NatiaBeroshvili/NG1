@@ -1,12 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { RoomTypes } from '../models/GetroomTypes';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-roomstype',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './roomstype.component.html',
   styleUrl: './roomstype.component.scss',
   standalone : true
@@ -28,8 +28,11 @@ export class RoomstypeComponent implements OnInit{
   }
 
   roomsTypeArr: RoomTypes[] = [];
-  searchByType(typeId : number){
+  searchByType(typeId : number,id:number){
     this.typeId.emit(typeId)
+    this.active=`active${id}`
   }
+
+active!: string
 }
 

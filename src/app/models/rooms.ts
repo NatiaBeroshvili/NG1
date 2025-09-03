@@ -8,3 +8,8 @@
   roomTypeId! : number;
   images!: Array<{ source: string }>;
 }
+
+
+
+
+

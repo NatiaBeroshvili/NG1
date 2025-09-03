@@ -80,3 +80,66 @@
   object-fit: cover;
   border-radius: 4px;
 }
+
+
+.range{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter-box {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  
+  label {
+  font-size:large;
+  font-family: 'Times New Roman', Times, serif;
+  }
+
+  input,
+  select {
+    padding: 5px 12px;
+    border-radius: 5px;
+    border-color: #5a626860;
+   
+  }
+
+
+
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+ 
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      font-family: 'Times New Roman', Times, serif;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:last-child {
+        background-color: #6c757d;
+
+        &:hover {
+          background-color: #5a6268;
+        }
+      }
+    }
+  }
+}

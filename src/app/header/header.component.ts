@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 export class HeaderComponent {
    
  active="active"
+ 
   showBurger =false
 showHide() {this.showBurger==false? this.showBurger=true :this.showBurger=false;
 }

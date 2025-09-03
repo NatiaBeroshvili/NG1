@@ -1,14 +1,45 @@
 <app-roomstype (typeId)="roomTypeFromChild($event)"></app-roomstype>
 
+<div class="range">
+
+<div class="filter-box">
+
+  <label>A Night {{ priceRange }} €</label>
+  <input type="range" min="0" max="500" [(ngModel)]="priceRange" name="priceRange" />
+
+  <label>Check-in</label>
+  <input type="date" [(ngModel)]="checkIn" name="checkIn" />
+
+  <label>Check-out</label>
+  <input type="date" [(ngModel)]="checkOut" name="checkOut" />
+
+  <label>Rooms Type</label>
+  <select [(ngModel)]="roomType" name="roomType">
+    <option value="">All</option>
+    <option value="Single">Single</option>
+    <option value="Double">Double</option>
+    <option value="Suite">Deluxe</option>
+  </select>
+
+  <label>Guests</label>
+  <input type="number" [(ngModel)]="guests" name="guests" min="1" />
+
+  <div class="filter-buttons">
+    <button (click)="applyFilters()">Apply filter</button>
+    <button (click)="resetFilters()">Reset</button>
+  </div>
+</div>
+</div>
+
 <div class="cont">
   <div class="room-card" *ngFor="let room of roomsArr">
     <div *ngIf="room.images?.length">
       <img [src]="room.images[0].source" alt="Room Image" />
       <h2>{{ room.name }}</h2>
+      <p>Maximum Guests: {{ room.maximumGuests }}</p>
       <p>Night price: {{ room.pricePerNight }} €</p>
-    
-       <button routerLink="/booking/{{room.id}}"   class="bkn">Book Now</button>
-       <!-- <p>Maximum Guests: {{ room.maximumGuests }}</p> -->
+
+      <button routerLink="/booking/{{ room.id }}" class="bkn">Book Now</button>
     </div>
   </div>
 </div>

@@ -3,6 +3,9 @@
 
 
 <div class="typesbtn">
-   <button (click)="searchByType(-1)">All</button>
-   <button *ngFor="let el of roomsTypeArr" (click)="searchByType(el.id)">{{el.name}}</button>
+   <button (click)="searchByType(-1, -1)" [class]="active">All</button>
+   <button *ngFor="let el of roomsTypeArr; let i = index"  (click)="searchByType(el.id,i)" [class]="active">{{el.name}}</button>
+
 </div>
+
+
