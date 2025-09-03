@@ -17,6 +17,7 @@ import { Rooms } from '../models/rooms';
 export class RoomsComponent implements OnInit {
   room: any;
   id!: string;
+  today: any;
 
   
 
@@ -30,13 +31,14 @@ export class RoomsComponent implements OnInit {
   
 priceRange: number = 500;
 roomType: string = '';
-checkIn = new Date();
+checkIn: string = new Date().toISOString().split('T')[0];
 checkOut= new Date();
+
 guests: number = 1;
 
 
 
-originalRooms: Rooms[] = [];
+
 
 
   ngOnInit() {
@@ -47,7 +49,7 @@ originalRooms: Rooms[] = [];
         )
         .subscribe((resp: any) => {
           this.roomsArr = resp.rooms;
-          this.originalRooms=resp.rooms
+         
           console.log(this.roomsArr);
         });
     } else {
@@ -55,21 +57,23 @@ originalRooms: Rooms[] = [];
         .getData('https://hotelbooking.stepprojects.ge/api/Rooms/GetAll')
         .subscribe((resp: any) => {
           this.roomsArr = resp;
-             this.originalRooms=resp.rooms
+         
           console.log(this.roomsArr);
         });
     }
   }
 
 applyFilters() {
-if(this.checkIn < this.checkOut){
+if (new Date(this.checkIn) < new Date(this.checkOut)) {
   
   this.api.filterRoom("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered",{
-  priceFrom: 0,
+
+  priceFrom: 50,
   priceTo: this.priceRange,
   maximumGuests: this.guests,
   checkIn:this.checkIn,
   checkOut: this.checkOut
+
 
   } ).subscribe((resp :any) =>
     {console.log(resp)
@@ -80,15 +84,16 @@ if(this.checkIn < this.checkOut){
 }
 else{
   
-  alert("not correct")
+  alert("La date de départ ne peut pas être avant la date d'arrivée.")
+   return;
 }
 }
 
 resetFilters() {
   this.priceRange = 500;
   this.roomType = '';
-  this.checkIn = new Date();
-  this.checkOut = new Date();
+  this.checkIn = new Date().toISOString().split('T')[0];
+  this.checkOut= new Date();
   this.guests = 1;
 
 
@@ -96,7 +101,7 @@ resetFilters() {
         .getData('https://hotelbooking.stepprojects.ge/api/Rooms/GetAll')
         .subscribe((resp: any) => {
           this.roomsArr = resp;
-             this.originalRooms=resp.rooms
+            
           console.log(this.roomsArr);
         });
 }
