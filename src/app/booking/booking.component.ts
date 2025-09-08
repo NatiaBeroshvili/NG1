@@ -9,16 +9,21 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
-  imports: [CommonModule,FormsModule],
-  standalone: true
+  imports: [CommonModule, FormsModule],
+  standalone: true,
 })
 export class BookingComponent {
   booking = {
-  checkIn: new Date().toISOString().substring(0, 10),
-  checkOut: '',
-  name: '',
-  phone: ''
-};
+    id: 0,
+    roomId: 0,
+    checkIn: new Date().toISOString().substring(0, 10),
+    checkOut: '',
+    name: '',
+    customerId: '',
+    phone: '',
+    totalPrice: 0,
+  };
+
   roomId!: number;
   room: Rooms | null = null;
 
@@ -37,15 +42,50 @@ export class BookingComponent {
         console.log(resp);
         this.room = resp;
       });
+
+    // Remove this block from ngOnInit. Booking should be created in bookNow() when user submits the form.
   }
 
-  bookNow(): void {
-  if (!this.booking.name || !this.booking.phone) {
-    alert('Veuillez remplir tous les champs');
-    return;
+  //   bookNow(){
+  //   if (!this.booking.name || !this.booking.phone) {
+  //     alert('Veuillez remplir tous les champs');
+  //     return;
+  //   }
+
+  //   console.log('Réservation confirmée :', this.booking);
+  // }
+  bookNow() {
+    if (!this.booking.name || !this.booking.phone) {
+      alert('Veuillez remplir tous les champs');
+      return;
+    }
+
+    this.api
+      .creatBooking('https://hotelbooking.stepprojects.ge/api/Booking', {
+        id: 0,
+        roomID: this.roomId,
+        checkInDate: this.booking.checkIn,
+        checkOutDate: this.booking.checkOut,
+        totalPrice: this.room?.pricePerNight || 0,
+        isConfirmed: true,
+        customerName: this.booking.name,
+        customerId: 'client-001', // tu peux générer ou demander cet ID
+        customerPhone: this.booking.phone,
+
+        //       {
+        //   "id": 0,
+        //   "roomID": 0,
+        //   "checkInDate": "2025-09-08T15:48:04.685Z",
+        //   "checkOutDate": "2025-09-08T15:48:04.685Z",
+        //   "totalPrice": 0,
+        //   "isConfirmed": true,
+        //   "customerName": "string",
+        //   "customerId": "string",
+        //   "customerPhone": "string"
+        // }
+      })
+      .subscribe((resp: string) => {
+        console.log('Réservation confirmée :', resp);
+      });
   }
-
-  console.log('Réservation confirmée :', this.booking);
-}
-
 }

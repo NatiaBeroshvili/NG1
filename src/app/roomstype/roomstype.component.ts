@@ -6,33 +6,32 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-roomstype',
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './roomstype.component.html',
   styleUrl: './roomstype.component.scss',
-  standalone : true
+  standalone: true,
 })
-export class RoomstypeComponent implements OnInit{
-
+export class RoomstypeComponent implements OnInit {
   @Output() typeId: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private api : ApiService) {
-
-  }
-
+  constructor(private api: ApiService) {}
+  selectedIndex: number = -1;
   ngOnInit() {
-    this.api.getroomTypes("https://hotelbooking.stepprojects.ge/api/Rooms/GetRoomTypes")
-      .subscribe((resp :any) =>{
-        this.roomsTypeArr = resp
-        console.log(this.roomsTypeArr)
+    this.api
+      .getroomTypes(
+        'https://hotelbooking.stepprojects.ge/api/Rooms/GetRoomTypes'
+      )
+      .subscribe((resp: any) => {
+        this.roomsTypeArr = resp;
+        console.log(this.roomsTypeArr);
       });
   }
 
   roomsTypeArr: RoomTypes[] = [];
-  searchByType(typeId : number,id:number){
-    this.typeId.emit(typeId)
-    this.active=`active${id}`
+  searchByType(typeId: number, id: number) {
+    this.typeId.emit(typeId);
+      this.selectedIndex = id;
   }
 
-active!: string
+  active!: string;
 }
-

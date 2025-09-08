@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <app-roomstype (typeId)="roomTypeFromChild($event)"></app-roomstype>
 
 <div class="range">
@@ -5,7 +11,7 @@
 <div class="filter-box">
 
   <label>A Night {{ priceRange }} €</label>
-  <input type="range" min="0" max="500" [(ngModel)]="priceRange" name="priceRange" />
+  <input type="range" min="0" max="500" [(ngModel)]="priceRange" (ngModelChange)="filterByRange()" name="priceRange" />
 
   <label>Check-in</label>
   <input type="date" [(ngModel)]="checkIn" [min]="today"name="checkIn" />
@@ -16,9 +22,9 @@
   <label>Rooms Type</label>
   <select [(ngModel)]="roomType" name="roomType">
     <option value="">All</option>
-    <option value="Single">Single</option>
-    <option value="Double">Double</option>
-    <option value="Suite">Deluxe</option>
+    <option value="1">Single</option>
+    <option value="2">Double</option>
+    <option value="3">Deluxe</option>
   </select>
 
   <label>Guests</label>

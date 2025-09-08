@@ -63,11 +63,23 @@ guests: number = 1;
     }
   }
 
+filterByRange(){
+  this.api.filterRoom("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered",{
+  priceFrom: 0,
+  priceTo: this.priceRange,
+
+  } ).subscribe((resp :any) =>
+    {console.log(resp)
+    this.roomsArr=resp
+
+    })
+}
+
 applyFilters() {
 if (new Date(this.checkIn) < new Date(this.checkOut)) {
   
   this.api.filterRoom("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered",{
-
+  roomTypeId: this.roomType,
   priceFrom: 50,
   priceTo: this.priceRange,
   maximumGuests: this.guests,

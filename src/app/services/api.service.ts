@@ -17,7 +17,6 @@ export class ApiService {
   }
 
 
-
   getAllRooms(url : string){
     return this.http.get(url).pipe(
       catchError(this.errorHandling)
@@ -41,6 +40,12 @@ getroomTypes(url:string){
     catchError(this.errorHandling)
   )
  }
+
+creatBooking(url: string, obj: any){
+  return this.http.post(url, obj, { responseType: 'text' }).pipe(
+    catchError(this.errorHandling)
+  );
+}
 
 
 
