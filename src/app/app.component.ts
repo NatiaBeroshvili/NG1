@@ -4,14 +4,13 @@ import { HeaderComponent } from "./header/header.component";
 import { HomeComponent } from './home/home.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { RoomsComponent } from './rooms/rooms.component';
-import { BookedroomsComponent } from './bookedrooms/bookedrooms.component';
-
+import { BookedRoomsComponent } from './bookedrooms/bookedrooms.component';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent,HomeComponent,HotelsComponent,RoomsComponent,BookedroomsComponent],
+  imports: [RouterOutlet, HeaderComponent,HomeComponent,HotelsComponent,RoomsComponent,BookedRoomsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

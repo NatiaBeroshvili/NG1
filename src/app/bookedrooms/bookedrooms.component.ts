@@ -1,12 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component,OnDestroy} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-bookedrooms',
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './bookedrooms.component.html',
-  styleUrl: './bookedrooms.component.scss'
+  styleUrl: './bookedrooms.component.scss',
 })
-export class BookedroomsComponent {
+
+
+export class BookedRoomsComponent implements OnInit, OnDestroy  {
+  bookingData: any;
+
+  ngOnInit() {
+    const storedData = localStorage.getItem('latestBooking');
+    if (storedData) {
+      this.bookingData = JSON.parse(storedData);
+    }
+  }
+
+  ngOnDestroy(): void {
+    localStorage.removeItem('latestBooking');
+  }
 
 }
+
+
+
+
+
+

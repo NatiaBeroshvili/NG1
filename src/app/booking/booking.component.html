@@ -42,7 +42,7 @@
     <form (ngSubmit)="bookNow()">
       <label>Check-in <i class="fas fa-calendar-alt"></i></label>
       
-      <input type="date" [(ngModel)]="booking.checkIn" name="checkIn" required />
+      <input type="date" [(ngModel)]="booking.checkIn" name="checkIn" required  />
 
       <label>Check-out <i class="fas fa-calendar-alt"></i></label>
       <input type="date" [(ngModel)]="booking.checkOut" name="checkOut" required />
@@ -54,9 +54,10 @@
 
 <input type="tel" [(ngModel)]="booking.phone" name="phone" required placeholder="Please enter your phone N°" />
 
-      <button type="submit" class="submit">BOOK NOW</button>
+      <button (ngSubmit)="bookNow()" type="submit" class="submit">BOOK NOW</button>
     </form>
   </div> 
+
 
 
 

@@ -40,7 +40,7 @@ export const routes: Routes = [
     path: 'bookedrooms',
     loadComponent: () =>
       import('./bookedrooms/bookedrooms.component').then(
-        (p) => p.BookedroomsComponent
+        (p) => p.BookedRoomsComponent
       ),
   },
 

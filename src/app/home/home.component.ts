@@ -41,7 +41,6 @@ roomsArr: Rooms [] = [];
 AllRooms() {
   this.http.getData("https://hotelbooking.stepprojects.ge/api/Rooms/GetAll")
 .subscribe((resp:any) => {
-
   this.roomsArr = resp.slice(0,6)
   console.log(this.roomsArr)
 }

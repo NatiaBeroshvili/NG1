@@ -1,1 +1,16 @@
-<p>bookedrooms works!</p>
+
+
+<div class="bookedrooms" *ngIf="bookingData">
+  <h2>Booking Details</h2>
+  <p>Guest: {{ bookingData.customerName }}</p>
+  <p>Room Name: {{ bookingData.name }}</p>
+  <p>chek-in: {{ bookingData.checkInDate }}</p>
+  <p>Chek-out: {{ bookingData.checkOutDate }}</p>
+  <p>Guest ID: {{ bookingData.guests }}</p>
+  <p>Phone Number: {{ bookingData.customerPhone }}</p>
+  <p>Total Price: {{ bookingData.total }} $</p>
+</div>
+
+
+
+

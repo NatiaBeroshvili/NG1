@@ -76,7 +76,7 @@ filterByRange(){
 }
 
 applyFilters() {
-if (new Date(this.checkIn) < new Date(this.checkOut)) {
+if (new Date(this.checkIn) < new Date(this.checkOut), this.priceRange) {
   
   this.api.filterRoom("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered",{
   roomTypeId: this.roomType,
