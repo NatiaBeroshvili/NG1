@@ -42,10 +42,14 @@
     <form (ngSubmit)="bookNow()">
       <label>Check-in <i class="fas fa-calendar-alt"></i></label>
       
-      <input type="date" [(ngModel)]="booking.checkIn" name="checkIn" required  />
+      <input type="date" [(ngModel)]="booking.checkIn" name="checkIn" (change)="calculateTotalPrice()" required  />
 
       <label>Check-out <i class="fas fa-calendar-alt"></i></label>
-      <input type="date" [(ngModel)]="booking.checkOut" name="checkOut" required />
+      <input type="date" [(ngModel)]="booking.checkOut" name="checkOut" (change)="calculateTotalPrice()" required />
+
+      <label>Number of guests</label>
+      <input type="number" [(ngModel)]="booking.guests" name="guests" min="1" (change)="calculateTotalPrice()" required />
+
 
       <label>Customer Name</label>
       <input type="text" [(ngModel)]="booking.name" name="name" required placeholder="Please enter your name" />
@@ -53,6 +57,17 @@
       <label>Customer Phone  N°</label>
 
 <input type="tel" [(ngModel)]="booking.phone" name="phone" required placeholder="Please enter your phone N°" />
+
+
+<p>
+  Chek-in: {{ booking.checkIn }}  <br> Check-out: {{ booking.checkOut }}<br />
+  Guests: {{ booking.guests }}<br />
+  Nombre de nuits : <strong>{{ booking.nights }}</strong><br /> 
+  Total Price  : <strong>{{ booking.totalPrice }} €</strong>
+
+</p>
+<!-- 
+<p>Total Price <strong>{{ booking.totalPrice }} €</strong></p> -->
 
       <button (ngSubmit)="bookNow()" type="submit" class="submit">BOOK NOW</button>
     </form>

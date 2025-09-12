@@ -1,43 +1,41 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { Rooms } from '../models/rooms';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
   imports: [CommonModule, FormsModule],
-  standalone: true,
+  standalone:true
+
 })
 export class BookingComponent {
- booking = {
+  booking = {
     id: 0,
     roomId: 0,
     checkIn: '',
     checkOut: '',
+    nights: 0,
     name: '',
+     guests: 1,
     customerId: '',
     phone: '',
     totalPrice: 0,
-    
   };
-
 
   roomId!: number;
   room: Rooms | null = null;
   // router: any;
 
-  
-
-
-  constructor(private route: ActivatedRoute,
-     private api: ApiService,
-     private router: Router
-) {
+  constructor(
+    private route: ActivatedRoute,
+    private api: ApiService,
+    private router: Router
+  ) {
     this.route.params.subscribe((params) => {
       this.roomId = params['id'];
     });
@@ -54,16 +52,43 @@ export class BookingComponent {
       });
   }
 
+calculateTotalPrice(){
+  if (!this.booking.checkIn || !this.booking.checkOut || !this.room) {
+    this.booking.totalPrice = 0;
+    this.booking.nights = 0;
+    return;
+  }
+
+  const checkIn = new Date(this.booking.checkIn);
+  const checkOut = new Date(this.booking.checkOut);
+  const diffTime = checkOut.getTime() - checkIn.getTime();
+  const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  const guests = this.booking.guests || 1;
+
+  if (nights <= 0 || guests <= 0) {
+    this.booking.totalPrice = 0;
+    this.booking.nights = 0;
+    return;
+  }
+
+  this.booking.nights = nights;
+  this.booking.totalPrice = nights * this.room.pricePerNight * guests;
+}
 
 
+
+  
   bookNow() {
+   
+
     if (!this.booking.name || !this.booking.phone) {
       alert('Veuillez remplir tous les champs');
       return;
     }
 
     this.api
-      .creatBooking("https://hotelbooking.stepprojects.ge/api/Booking", {
+      .creatBooking('https://hotelbooking.stepprojects.ge/api/Booking', {
         id: 0,
         roomID: this.roomId,
         checkInDate: this.booking.checkIn,
@@ -74,27 +99,25 @@ export class BookingComponent {
         customerId: 'client-001', // tu peux générer ou demander cet ID
         customerPhone: this.booking.phone,
       })
-      .subscribe((resp: any) =>  {
+      .subscribe((resp: any) => {
+        localStorage.setItem(
+          'latestBooking',
+          JSON.stringify({
+            id: resp.id, // ეს მოდის სერვერიდან
+            total: this.room?.pricePerNight || 0,
+            guests: this.booking.customerId || 'client-001',
+            roomID: this.roomId,
+            customerName: this.booking.name,
+            checkInDate: this.booking.checkIn,
+            checkOutDate: this.booking.checkOut,
+            customerPhone: this.booking.phone,
+          
+          })
+        );
 
-        
-  localStorage.setItem(
-    'latestBooking',
-    JSON.stringify({
-      id: resp.id, // ეს მოდის სერვერიდან
-      total: this.room?.pricePerNight || 0,
-      guests: this.booking.customerId || 'client-001',
-      roomID: this.roomId,
-      customerName: this.booking.name,
-      checkInDate: this.booking.checkIn,
-      checkOutDate: this.booking.checkOut,
-      customerPhone: this.booking.phone,
-    })
-  );
+        this.router.navigate(['/bookedrooms']);
+      });
 
-  this.router.navigate(['/bookedrooms']);
-});
-
-
-        console.log('Réservation confirmée :');
-   
-  }}
+    console.log('Réservation confirmée :');
+  }
+}

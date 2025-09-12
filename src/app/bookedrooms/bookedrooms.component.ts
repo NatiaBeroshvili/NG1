@@ -20,6 +20,7 @@ export class BookedRoomsComponent implements OnInit, OnDestroy  {
     const storedData = localStorage.getItem('latestBooking');
     if (storedData) {
       this.bookingData = JSON.parse(storedData);
+
     }
   }
 
