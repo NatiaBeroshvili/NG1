@@ -54,6 +54,13 @@ getBookings(url:string){
 }
 
 
+deleteBooking(url:string){
+  return this.http.delete(url, { responseType: 'text' }).pipe(
+    catchError(this.errorHandling)
+  )
+}
+
+
   private errorHandling(_err : HttpErrorResponse){
     return throwError(()=> ("something went wrong,try later"))
   }

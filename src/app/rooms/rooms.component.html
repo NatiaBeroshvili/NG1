@@ -11,7 +11,7 @@
 <div class="filter-box">
 
   <label>A Night {{ priceRange }} €</label>
-  <input type="range" min="0" max="500" [(ngModel)]="priceRange" (ngModelChange)="filterByRange()" name="priceRange" />
+  <input type="range" min="0" max="500" [(ngModel)]="priceRange"  name="priceRange" />
 
   <label>Check-in</label>
   <input type="date" [(ngModel)]="checkIn" [min]="today"name="checkIn" />
@@ -47,5 +47,12 @@
 
       <button routerLink="/booking/{{ room.id }}" class="bkn">Book Now</button>
     </div>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="error-overlay">
+  <div class="error-box">
+    <p>{{ errorMessage }}</p>
+    <button (click)="errorMessage = ''">Close</button>
   </div>
 </div>

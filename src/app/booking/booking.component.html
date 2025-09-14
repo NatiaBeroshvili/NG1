@@ -77,3 +77,10 @@
 
 
 </div>
+
+<div *ngIf="errorMessage" class="error-overlay">
+  <div class="error-box">
+    <p>{{ errorMessage }}</p>
+    <button (click)="errorMessage = ''">Close</button>
+  </div>
+</div>

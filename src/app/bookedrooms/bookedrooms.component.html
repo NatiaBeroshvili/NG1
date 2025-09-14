@@ -1,17 +1,39 @@
-
-
 <div class="bookedrooms" *ngIf="bookingData">
-  <h2>Booking Details</h2>
-  <p>Guest: {{ bookingData.customerName }}</p>
-  <p>Room Name: {{ bookingData.name }}</p>
-  <p>chek-in: {{ bookingData.checkInDate }}</p>
-  <p>Chek-out: {{ bookingData.checkOutDate }}</p>
-  <p>Guest ID: {{ bookingData.guests }}</p>
-  <p>Phone Number: {{ bookingData.customerPhone }}</p>
-  <p>Total Price: {{ bookingData.total }} $</p>
+  <div class="booking-container">
+    <!-- Carousel -->
+    <div id="carouselBooked" class="carousel slide" *ngIf="bookingData.roomImages?.length > 0">
+      <div class="carousel-inner">
+        <div *ngFor="let img of bookingData.roomImages; let i = index" class="carousel-item" [class.active]="i === 0">
+          <img [src]="img" class="d-block w-100" alt="Room photo">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselBooked" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselBooked" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
 
+    <!-- Booking Details -->
+    <div class="bookingdetails">
+      <h2>Booking Details</h2>
+      <p>Booking ID: {{ bookingData.id }} </p>
+      <p>Room Name: {{ bookingData.roomName }}</p>
+      <p>Guest: {{ bookingData.customerName }}</p>
+      <p>Check-in: {{ bookingData.checkInDate }}</p>
+      <p>Check-out: {{ bookingData.checkOutDate }}</p>
+      <!-- <p>Guest ID: {{ bookingData.guests }}</p> -->
+      <p>Phone Number: {{ bookingData.customerPhone }}</p>
+      <p>Total Price: {{ bookingData.total }} € </p>
+      <button (click)="deleteBooking()">Delete</button>
+    </div>
+  </div>
 </div>
 
-
-
-
+<div *ngIf="confirmationMessage" class="confirmation-overlay">
+  <div class="confirmation-box">
+    <p>{{ confirmationMessage }}</p>
+    <button (click)="confirmationMessage = ''">Close</button>
+  </div>
+</div>

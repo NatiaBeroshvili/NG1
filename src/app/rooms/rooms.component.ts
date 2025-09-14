@@ -28,7 +28,7 @@ export class RoomsComponent implements OnInit {
   }
 
 
-  
+
 priceRange: number = 500;
 roomType: string = '';
 checkIn: string = new Date().toISOString().split('T')[0];
@@ -63,20 +63,42 @@ guests: number = 1;
     }
   }
 
-filterByRange(){
-  this.api.filterRoom("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered",{
-  priceFrom: 0,
-  priceTo: this.priceRange,
+// filterByRange(){
+//   this.api.filterRoom("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered",{
+//   priceFrom: 0,
+//   priceTo: this.priceRange,
 
-  } ).subscribe((resp :any) =>
-    {console.log(resp)
-    this.roomsArr=resp
+//   } ).subscribe((resp :any) =>
+//     {console.log(resp)
+//     this.roomsArr=resp
 
-    })
-}
+//     })
+// }
+
+errorMessage: string = '';
+
 
 applyFilters() {
-if (new Date(this.checkIn) < new Date(this.checkOut), this.priceRange) {
+
+  const checkInDate = new Date(this.checkIn);
+  const checkOutDate = new Date(this.checkOut);
+  const today = new Date();
+
+   // Validation des dates
+  if (!this.checkIn || !this.checkOut || checkOutDate <= checkInDate || checkOutDate < today) {
+    this.errorMessage = '❌ Please enter valid dates. Check-out must be after check-in and not in the past.';
+    return;
+  }
+
+  // Validation du prix
+  if (this.priceRange < 89) {
+    this.errorMessage = '⚠️ Sorry, no rooms are available below €89. Please increase your price range.';
+    return;
+  }
+
+  // Si tout est bon, on efface le message et on lance la requête
+  this.errorMessage = '';
+
   
   this.api.filterRoom("https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered",{
   roomTypeId: this.roomType,
@@ -84,7 +106,7 @@ if (new Date(this.checkIn) < new Date(this.checkOut), this.priceRange) {
   priceTo: this.priceRange,
   maximumGuests: this.guests,
   checkIn:this.checkIn,
-  checkOut: this.checkOut
+  checkOut: this.checkOut,
 
 
   } ).subscribe((resp :any) =>
@@ -94,12 +116,8 @@ if (new Date(this.checkIn) < new Date(this.checkOut), this.priceRange) {
     })
 
 }
-else{
-  
-  alert("La date de départ ne peut pas être avant la date d'arrivée.")
-   return;
-}
-}
+
+
 
 resetFilters() {
   this.priceRange = 500;
