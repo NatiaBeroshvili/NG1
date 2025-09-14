@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 export class BookingComponent {
 
   errorMessage: string = '';
+ activeTab: string = 'overview';
+
+
 
   booking = {
     id: 0,

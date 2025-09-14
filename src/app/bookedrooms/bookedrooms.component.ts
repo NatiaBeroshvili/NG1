@@ -3,7 +3,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-bookedrooms',
@@ -19,7 +19,7 @@ export class BookedRoomsComponent implements OnInit {
   nights = 0;
   guests = 1;
 
-  constructor(private http: ApiService, private route: ActivatedRoute) {
+  constructor(private http: ApiService, private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe((params) => {
       this.name = params['name'];
       this.room = params['room'];
@@ -58,6 +58,13 @@ export class BookedRoomsComponent implements OnInit {
         localStorage.removeItem('latestBooking');
         this.noBookingText = true;
         this.bookingData = null;
-      });
+        
+          setTimeout(() => {
+        this.confirmationMessage = '';
+        this.router.navigate(['/']);
+      }, 2000);
+    });
+       
+      }
   }
-}
+

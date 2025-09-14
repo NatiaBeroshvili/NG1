@@ -96,16 +96,18 @@ a{
 .separator hr {
   flex: 1;
   border: none;
-  border-top: 2px solid #ccc;
+  border-top: 3px solid #555;
+  margin: 0 80px;
 }
 
 .separator-text {
   padding: 0 15px;
   font-size: 1.2rem;
-  color: #555;
+  color:#555;
   font-weight: bold;
   font-size: x-large;
   white-space: nowrap;
+
 }
 
 

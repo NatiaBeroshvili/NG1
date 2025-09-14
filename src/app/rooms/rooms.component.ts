@@ -18,7 +18,7 @@ export class RoomsComponent implements OnInit {
   room: any;
   id!: string;
   today: any;
-
+  
   
 
   constructor(private router: ActivatedRoute, private api: ApiService) {
@@ -83,19 +83,29 @@ applyFilters() {
   const checkInDate = new Date(this.checkIn);
   const checkOutDate = new Date(this.checkOut);
   const today = new Date();
+  roomTypeId: this.roomType;
+
 
    // Validation des dates
-  if (!this.checkIn || !this.checkOut || checkOutDate <= checkInDate || checkOutDate < today) {
-    this.errorMessage = '❌ Please enter valid dates. Check-out must be after check-in and not in the past.';
+  if (!this.checkIn || !this.checkOut || checkOutDate <= checkInDate || checkOutDate < today ) {
+    this.errorMessage = '❌ Please enter valid dates. Check-out must be after check-in and not in the past!';
     return;
   }
 
   // Validation du prix
   if (this.priceRange < 89) {
-    this.errorMessage = '⚠️ Sorry, no rooms are available below €89. Please increase your price range.';
+    this.errorMessage = '⚠️ Sorry, no rooms are available below €89. Please increase your price range!';
     return;
   }
+if (!this.roomType) {
+  this.errorMessage = '⚠️ Please select a room type before applying filters!';
+  return;
+}
 
+else{
+   this.errorMessage = '⚠️ Please select all fields correctly!';
+    return;
+}
   // Si tout est bon, on efface le message et on lance la requête
   this.errorMessage = '';
 

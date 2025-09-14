@@ -60,15 +60,12 @@
 
 
 <p>
-  Chek-in: {{ booking.checkIn }}  <br> Check-out: {{ booking.checkOut }}<br />
-  Guests: {{ booking.guests }}<br />
-  Nombre de nuits : <strong>{{ booking.nights }}</strong><br /> 
+  Chek-in: {{ booking.checkIn }}   Check-out: {{ booking.checkOut }}
+  Guests: {{ booking.guests }}
+  Nombre de nuits : <strong>{{ booking.nights }}</strong>
   Total Price  : <strong>{{ booking.totalPrice }} €</strong>
 
 </p>
-<!-- 
-<p>Total Price <strong>{{ booking.totalPrice }} €</strong></p> -->
-
       <button (ngSubmit)="bookNow()" type="submit" class="submit">BOOK NOW</button>
     </form>
   </div> 
@@ -84,3 +81,83 @@
     <button (click)="errorMessage = ''">Close</button>
   </div>
 </div>
+
+
+<div class="separator">
+  <span>Room Details</span>
+</div>
+
+
+
+
+
+<div class="contenu">
+
+  <div class="room-details-container">
+
+  <ul class="room-features-list">
+    
+    <li> <span class="bullet"> <i class="fa fa-check-circle color"></i> </span>Double Bed</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>60 square meter</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>Private Balcony</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>Free Internet</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>Beach view</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>Flat Screen TV</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>Free Newspaper</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>2 persons</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>Breakfast included</li>
+    <li><span class="bullet"><i class="fa fa-check-circle color"></i></span>Jacuzzi</li>
+  </ul>
+</div>
+
+
+<div class="overview-section">
+  <h2 class="lined-heading"><span>Overview</span></h2>
+
+  <!-- Onglets -->
+  <ul class="nav-tabs">
+    <li [class.active]="activeTab === 'overview'" (click)="activeTab = 'overview'">Overview</li>
+    <li [class.active]="activeTab === 'facilities'" (click)="activeTab = 'facilities'">Facilities</li>
+    <li [class.active]="activeTab === 'extra'" (click)="activeTab = 'extra'">Extra</li>
+  </ul>
+
+
+
+
+<div *ngIf="activeTab === 'overview'" class="tab-pane">
+ <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+  Porro necessitatibus quae voluptate doloremque aliquam quidem, sequi et expedita? 
+  ipsam ad cum recusandae sit voluptate asperiores aspernatur aut, consectetur ipsum perferendis hic! Obcaecati, saepe!</p>
+      <p>
+        <img src="images/restaurant-01.jpg" alt="food" class="tab-image" />
+        Donec pretium sem non tincidunt iaculis. Nunc at pharetra eros...
+      </p>
+</div>
+
+<div *ngIf="activeTab === 'facilities'" class="tab-pane">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit accusantium ipsum quos
+         laboriosam eaque assumenda incidunt totam impedit eum, molestiae nisi nulla sint quas,
+          quod harum! Ea quasi voluptas accusamus dolorem in illo minus maiores eius,
+         perspiciatis modi itaque perferendis labore. Reprehenderit repellendus ipsa architecto aliquid, eos illo iusto alias..</p>
+    </div>
+
+    <div *ngIf="activeTab === 'extra'" class="tab-pane">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita eius eligendi maxime quos,
+         ducimus iste mollitia laborum suscipit possimus dicta sunt, quia debitis consectetur cupiditate? Vero, 
+         temporibus nostrum. Neque animi, laudantium tempore ea aut exercitationem?
+         Obcaecati ea voluptatum deleniti aspernatur?
+          Laborum vero quisquam nihil adipisci itaque totam molestiae quo eveniet?</p>
+    </div>
+  
+
+    
+
+    
+  </div>
+</div>
+
+
+
+
+
+
