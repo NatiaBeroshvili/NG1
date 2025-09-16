@@ -25,3 +25,16 @@
 
   }
 
+  @media screen and (max-width:450px) {
+    
+    .typesbtn{
+      gap:10px;
+        margin-left: 30px;
+
+        button{
+          font-size: medium;
+           padding: 5px 16px;
+        }
+    }
+  }
+

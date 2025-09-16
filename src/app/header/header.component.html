@@ -25,14 +25,15 @@
 </header>
 
 <div class="burgerMenu" *ngIf="showBurger">
-    <ul>
-        <li><a routerLink="home" [routerLinkActive]="active">Home</a></li>
-        <li><a routerLink="hotels" [routerLinkActive]="active">Hotels</a></li>
-        <li><a routerLink="rooms" [routerLinkActive]="active">Rooms</a></li>
-        <li><a routerLink="bookedrooms"  [routerLinkActive]="active">Booked Rooms</a></li>
-         <li><a routerLink="register" [routerLinkActive]="active"  *ngIf="!isAutorised()">Register</a></li>
-          <li><a routerLink="login" [routerLinkActive]="active" *ngIf="!isAutorised()">Log in</a></li>
-           <li><a (click)="logout()" *ngIf="isAutorised()">Log out</a></li>
-    </ul>
-
+  <ul>
+    <li><a routerLink="home" [routerLinkActive]="active" (click)="closeBurger()">Home</a></li>
+    <li><a routerLink="hotels" [routerLinkActive]="active" (click)="closeBurger()">Hotels</a></li>
+    <li><a routerLink="rooms" [routerLinkActive]="active" (click)="closeBurger()">Rooms</a></li>
+    <li><a routerLink="bookedrooms" [routerLinkActive]="active" (click)="closeBurger()">Booked Rooms</a></li>
+    <li><a routerLink="register" [routerLinkActive]="active" *ngIf="!isAutorised()" (click)="closeBurger()">Register</a></li>
+    <li><a routerLink="login" [routerLinkActive]="active" *ngIf="!isAutorised()" (click)="closeBurger()">Log in</a></li>
+    <li><a (click)="logout(); closeBurger()" *ngIf="isAutorised()">Log out</a></li>
+  </ul>
 </div>
+
+

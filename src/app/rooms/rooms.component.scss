@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .cont {
   display: flex;
   flex-wrap: wrap;
@@ -187,4 +188,205 @@ h2{
 
 .error-box button:hover {
   background-color: #0056b3;
+}
+
+
+
+
+@media (max-width: 1250px) {
+  .range {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0 70px;
+  }
+ .filter-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    padding: 15px;
+  }
+.filter-box input,
+  .filter-box select,
+  .filter-box .range input {
+    width: 100%;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .filter-box label {
+    font-size: 1rem;
+    text-align: left;
+  }
+.range {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0 70px;
+  }
+  .filter-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-buttons button {
+    width: 100%;
+    font-size: medium;
+  }
+
+  }
+
+
+
+@media (max-width: 900px) {
+  .cont {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .room-card {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .room-card img {
+    height: 180px;
+  }
+
+  .bkn {
+    padding: 12px 40px;
+    top: auto;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: medium;
+  }
+
+  .filter-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    padding: 15px;
+  }
+.filter-box input,
+  .filter-box select,
+  .filter-box .range input {
+    width: 100%;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .filter-box label {
+    font-size: 1rem;
+    text-align: left;
+  }
+.range {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0 70px;
+  }
+  .filter-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-buttons button {
+    width: 100%;
+    font-size: medium;
+  }
+
+  .error-box {
+    width: 90%;
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  .error-box button {
+    width: 100%;
+    font-size: medium;
+  }
+}
+
+@media (max-width: 450px) {
+  .cont {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .room-card {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .room-card img {
+    height: 160px;
+  }
+
+  .room-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .room-card p {
+    font-size: 0.95rem;
+  }
+
+  .bkn {
+    padding: 10px 30px;
+    font-size: 0.9rem;
+    bottom: 15px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .filter-box {
+    padding: 10px;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .filter-box label {
+    font-size: 0.95rem;
+  }
+
+  .filter-box input,
+  .filter-box select,
+  .range input[type="range"] {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .range {
+    padding: 0 15px;
+    margin-bottom: 15px;
+  }
+
+  .filter-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filter-buttons button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 6px 10px;
+  }
+
+  .error-box {
+    width: 95%;
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+
+  .error-box button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
 }

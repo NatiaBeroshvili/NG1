@@ -41,10 +41,12 @@ header {
       }
     }
   }
+
+  
 }
 
 .burger {
-
+  display: none;
   width: 30px;
   height: 30px;
   display: flex;
@@ -87,6 +89,7 @@ header {
       }
     }
   }
+  
 }
 
 .active {

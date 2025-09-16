@@ -119,13 +119,14 @@
 }
 
 .room-details-container {
-  height: 50vh;
+  height: auto;
   background-color: #fff;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   width: 40%;
   margin: 30px auto;
+   overflow: visible;
 
   
 }
@@ -174,13 +175,14 @@ i{
 
 
 .overview-section {
-  height: 60vh;
+  height: auto;
   background: #fff;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   width: 40%;
   margin: 30px auto;
+   overflow: visible;
 }
 
 h2{
@@ -196,22 +198,26 @@ h2{
 
 .nav-tabs {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  padding: 30px 20px;
-  margin: 20px 0;
+  // padding: 30px 20px;
+  // margin: 20px 0;
   gap: 10px;
   border-bottom: 1px solid #ddd;
+  overflow: hidden;
 }
 
 .nav-tabs li {
   cursor: pointer;
-  padding: 10px 60px;
+  padding: 10px 20px;
   font-weight: 500;
   font-family: 'Times New Roman', Times, serif;
   color: #555;
   border-radius: 6px 6px 0 0;
   background-color: #f0f0f0;
   transition: background-color 0.3s ease;
+   white-space: nowrap;
+   flex: 0 0 auto; 
 }
 
 .nav-tabs li.active {
@@ -227,9 +233,15 @@ h2{
 
 .tab-image {
   float: right;
-  max-width: 150px;
+  max-width: 100px;
+  height: auto;
   margin-left: 20px;
   border-radius: 8px;
+}
+
+.tab-pane  {
+  max-width: 100%;
+  height: auto;
 }
 .separator {
   display: flex;
@@ -245,6 +257,8 @@ h2{
   height: 2px;
   background-color:#55555582;
   margin: 0 80px;
+   display: table;
+  clear: both;
 }
 
 .separator span {
@@ -254,4 +268,206 @@ h2{
   font-weight: bold;
   font-size: x-large;
   white-space: nowrap;
+}
+
+
+@media (max-width: 900px) {
+  .carcont {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+    margin-top: 120px;
+  }
+
+  .carousel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .reservation-form {
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+  }
+
+  .reservation-form input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .contenu {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .room-details-container,
+  .overview-section {
+    width: 100%;
+    max-width: 700px;
+    padding: 25px;
+  }
+
+  .room-features-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .nav-tabs {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    gap: 12px;
+  }
+
+  .nav-tabs li {
+    width: 90%;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .tab-pane {
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .tab-pane .tab-image {
+    float: none;
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .separator::before,
+  .separator::after {
+    margin: 0 40px;
+  }
+
+  .separator span {
+    font-size: 1.4rem;
+  }
+
+  .error-box {
+    width: 90%;
+    padding: 25px;
+    font-size: 1rem;
+  }
+
+  .error-box button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 750px) {
+  .carcont {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 15px;
+    margin-top: 100px;
+  }
+
+  .carousel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .reservation-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+  }
+
+  .reservation-form input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .contenu {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 15px;
+  }
+
+  .room-details-container,
+  .overview-section {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+  }
+
+  .room-features-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .nav-tabs {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    gap: 10px;
+  }
+
+  .nav-tabs li {
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .tab-pane {
+    padding: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .tab-pane .tab-image {
+    float: none;
+    display: block;
+    margin: 15px auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .separator::before,
+  .separator::after {
+    margin: 0 30px;
+  }
+
+  .separator span {
+    font-size: 1.2rem;
+  }
+
+  .error-box {
+    width: 90%;
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .error-box button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
 }

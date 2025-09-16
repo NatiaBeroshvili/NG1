@@ -32,8 +32,15 @@ export class HeaderComponent {
  active="active"
  
   showBurger =false
-showHide() {this.showBurger==false? this.showBurger=true :this.showBurger=false;
+showHide() {
+  this.showBurger = !this.showBurger;
 }
+
+
+closeBurger() {
+  this.showBurger = false;
+}
+
 
 logout(){
   localStorage.removeItem("token")

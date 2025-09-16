@@ -118,3 +118,180 @@ justify-content: center;
 .confirmation-box button:hover {
   background-color: #4cae4c;
 }
+
+@media (max-width: 1150px) {
+  .booking-container {
+    width: 80%;
+    margin: 20px 100px;
+    padding: 20px;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #carouselBooked {
+    flex: 1 1 100%;
+    max-width: 600px;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .bookingdetails {
+    flex: 1 1 100%;
+    max-width: 600px;
+    padding: 20px;
+  }
+
+  .bookingdetails h2 {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .bookingdetails p {
+    font-size: 1rem;
+    margin: 8px 0;
+    text-align: left;
+  }
+
+  .bookingdetails button {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  .confirmation-box {
+    width: 90%;
+    padding: 25px;
+    font-size: 1rem;
+  }
+
+  .confirmation-box button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .booking-container {
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin:30px 130px;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  #carouselBooked {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .bookingdetails {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+  }
+
+  .bookingdetails h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .bookingdetails p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .bookingdetails button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .confirmation-box {
+    width: 90%;
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .confirmation-box button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .booking-container {
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    margin: 20px auto;
+    padding: 15px;
+    gap: 25px;
+  }
+
+  #carouselBooked {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .bookingdetails {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .bookingdetails h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .bookingdetails p {
+    font-size: 0.95rem;
+    margin: 6px 0;
+    text-align: left;
+  }
+
+  .bookingdetails button {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+    margin-top: 15px;
+  }
+
+  .confirmation-box {
+    width: 90%;
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+
+  .confirmation-box button {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}
