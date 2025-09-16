@@ -17,7 +17,7 @@
 
 .hotel-card{
     background-color: #F8F9FA;
-    width: 60% !important;
+    width: 60%;
     height: 60vh;
     display: flex;
     flex-direction: column;
@@ -68,5 +68,69 @@
 
 }
 
+@media screen and (max-width:1200px) {
+
+ .hotel-list {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+
+    .card{
+        width: 350px;
+
+        .btn{
+ padding: 10px 30px;
+ font-size: medium;
+        }
+
+        h3, h2, p {
+            font-size: medium;
+        }
+    }
+
+    .hotel-card{
+        width: 350px;
+        flex-wrap: wrap;
+    }
+ }
+    
+}
 
 
+
+@media screen and (max-width:400px) {
+
+
+ .hotel-list {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+
+    .card{
+        width: 250px;
+
+        .btn{
+ padding: 8px 15x;
+ font-size: small;
+        }
+
+        h3, h2, p {
+            font-size: medium;
+        }
+
+        img{
+        width: 250px;
+    }
+    }
+
+    .hotel-card{
+        width:250px;
+        flex-wrap: wrap;
+    }
+ }
+
+}
