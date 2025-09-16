@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -42,7 +43,26 @@ export const routes: Routes = [
       import('./bookedrooms/bookedrooms.component').then(
         (p) => p.BookedRoomsComponent
       ),
+      canActivate : [authGuard]
   },
 
+    {
+    path: 'register',
+    loadComponent: () =>
+      import('./register/register.component').then((p) => p.RegisterComponent),
+  },
+
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./login/login.component').then((p) => p.LoginComponent),
+  },
+
+
+   {
+    path: 'signal',
+    loadComponent: () =>
+      import('./signal/signal.component').then((p) => p.SignalComponent),
+  },
   { path: '**', component: ErrorComponent },
 ];

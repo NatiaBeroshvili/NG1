@@ -16,6 +16,12 @@ export class ApiService {
 
   }
 
+  postData(url: string, obj : any){
+     return this.http.post(url, obj).pipe(
+    catchError(this.errorHandling)
+  )
+ }
+
 
   getAllRooms(url : string){
     return this.http.get(url).pipe(

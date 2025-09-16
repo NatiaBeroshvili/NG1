@@ -16,8 +16,8 @@ header {
   z-index: 1000;
   background-image: url(../../../public/images/Capture\ d’écran_5-8-2025_12438_depositphotos.com.jpeg);
   background-repeat: no-repeat;
-  background-size: 130px;
-  // margin-left: 80px;
+  background-size: 120px;
+  // margin-left: 40px;
 
   nav {
     ul {
@@ -32,6 +32,7 @@ header {
           font-weight: bold;
           font-size: larger;
           font-family: "Times New Roman", Times, serif;
+          cursor: pointer;
 
           &:hover {
             color: #007bff;
@@ -43,6 +44,7 @@ header {
 }
 
 .burger {
+  display: none;
   width: 30px;
   height: 30px;
   display: flex;
@@ -59,6 +61,7 @@ header {
 }
 
 .burgerMenu {
+  display: none;
   width: 100%;
   height: 90vh;
   background-color: #40434526;
@@ -90,4 +93,14 @@ header {
   background-color: rgba(128, 128, 128, 0.413);
   padding: 10px 20px;
   border-radius: 3px;
+}
+
+@media (max-width: 900px) {
+  header nav ul {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
 }

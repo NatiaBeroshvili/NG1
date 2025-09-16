@@ -102,10 +102,7 @@ if (!this.roomType) {
   return;
 }
 
-else{
-   this.errorMessage = '⚠️ Please select all fields correctly!';
-    return;
-}
+
   // Si tout est bon, on efface le message et on lance la requête
   this.errorMessage = '';
 

@@ -6,7 +6,14 @@
         <li><a routerLink="rooms"  [routerLinkActive]="active">Rooms</a></li>
         <li><a routerLink="bookedrooms" [routerLinkActive]="active">Booked Rooms</a></li>
     </ul>
-    
+</nav>
+
+<nav>
+    <ul>
+         <li><a routerLink="register" [routerLinkActive]="active"  *ngIf="!isAutorised()">Register</a></li>
+        <li><a routerLink="login" [routerLinkActive]="active" *ngIf="!isAutorised()">Log in</a></li>
+        <li><a (click)="logout()" *ngIf="isAutorised()">Log out</a></li>
+    </ul>
 </nav>
 
 <div class="burger" (click)="showHide()">
@@ -23,6 +30,9 @@
         <li><a routerLink="hotels" [routerLinkActive]="active">Hotels</a></li>
         <li><a routerLink="rooms" [routerLinkActive]="active">Rooms</a></li>
         <li><a routerLink="bookedrooms"  [routerLinkActive]="active">Booked Rooms</a></li>
+         <li><a routerLink="register" [routerLinkActive]="active"  *ngIf="!isAutorised()">Register</a></li>
+          <li><a routerLink="login" [routerLinkActive]="active" *ngIf="!isAutorised()">Log in</a></li>
+           <li><a (click)="logout()" *ngIf="isAutorised()">Log out</a></li>
     </ul>
 
 </div>
